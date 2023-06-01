@@ -18,8 +18,16 @@ const cairoImage4th = "img/IMG-1985.jpg";
 const cairoImage5th = "img/IMG-1985.jpg";
 const cairoImage6th = "img/IMG-1985.jpg";
 
-const vacationPlaces = ["Cairo", "Zanzibar", "Bali", "Singapore"]
+const zanzibarImageMain = "img/IMG-1987.jpg";
 
+const vacationPlaces = ["Cairo", "Zanzibar", "Bali", "Singapore"];
+const vactionpricesFrom = {cairoVactionpricesFrom: "1545", zanzibarVactionpricesFrom: "1,590,000", baliVactionpricesFrom: "1650", singaporeVactionpricesFrom: "300" };
+const vactionpricesTo = {cairoVactionpricesTo: "1810", zanzibarVactionpricesTo: "1,800,000", baliVactionpricesTo: "2050", singaporeVactionpricesTo: "400" };
+const vactionDetails = { cairoVactionDetails: "Egypt visa on arrival | Return flight ticket | Domestic flight | 2 nights in Cairo with breakfast, lunch & dinner | Cairo city tour (Pyramids of Giza, Sphinx tour, Egypt Musuem) | Deep sea diving & snorkeling |Desert safari and Quad biking | Glass boat | parasailing | Airport transfers",
+ zanzibarVactionDetails: "E-visa | Return Economy Flight Ticket | Daily breakfast & dinner | 5 Nights Beach Resort accommodation Stone Town tour | Ocean Safari blue with launch | Snorkeling | Desert safari and Quad biking | Sunset cruise |  Airport transfers",
+ baliVactionDetails: "Indonesia visa | 4 Night Accomodation in Ubud | 3 Night Accomodation in Seminyak | Lunch & dinner | Stone Town tour | Ocean Safari blue with launch | Snorkeling ttip to Blue lagoon | Desert safari and Quad biking | Goa Giri Putri temple |  Airport transfers and private transport",
+ singaporeVactionDetails: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum incidunt, aperiam nostrum et. Voluptas vel labore numqua."
+}
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -29,7 +37,20 @@ app.use(express.static("public"));
 app.get("/", function(req, res){
   // use EJS to change values inside home.ejs homeTitle and homePost
   res.render("index", {aboutFirstSentence:aboutFirst, aboutSecondSentence:aboutSecond,
-    cairoImage:cairoImageMain, cairo:"Cairo", zanzibar: "Zanzibar", bali:"Bali", singapore:"Singapore"});
+    cairoImage:cairoImageMain, cairo:"Cairo", zanzibar: "Zanzibar", bali:"Bali", singapore:"Singapore",
+    cairoVactionpricesFrom: vactionpricesFrom.cairoVactionpricesFrom, zanzibarVactionpricesFrom: vactionpricesFrom.zanzibarVactionpricesFrom ,
+    baliVactionpricesFrom: vactionpricesFrom.baliVactionpricesFrom, singaporeVactionpricesFrom: vactionpricesFrom.singaporeVactionpricesFrom,
+
+    cairoVactionpricesTo: vactionpricesTo.cairoVactionpricesTo, zanzibarVactionpricesTo: vactionpricesTo.zanzibarVactionpricesTo ,
+    baliVactionpricesTo: vactionpricesTo.baliVactionpricesTo, singaporeVactionpricesTo: vactionpricesTo.singaporeVactionpricesTo,
+
+    cairoVactionDetails: vactionDetails.cairoVactionDetails, zanzibarVactionDetails: vactionDetails.zanzibarVactionDetails ,
+    baliVactionDetails: vactionDetails.baliVactionDetails, singaporeVactionDetails: vactionDetails.singaporeVactionDetails
+
+
+
+
+  });
 });
 //Use EJS to render parse about.ejs file to the server
 app.get('/about', function(req, res) {
@@ -71,16 +92,28 @@ app.post('/compose', function(req, res) {
 app.get('/package-details/:packageName', function(req,res) {
   // Use Lodash libaray to convert express route parameter value to lower case
   var requestedTitle = _.lowerCase(req.params.packageName);
-  var postsChange = {
-    postT: composeTitleContainer, postP: composePostContainer}
-  for (var i = 0; i < postsChange.postT.length; i++) {
-    var requestedTitleKebab = _.lowerCase(postsChange.postT[i]);
-    if (requestedTitleKebab === requestedTitle ) {
-      res.render('post', {postTitle: postsChange.postT[i],
-           postPost: postsChange.postP[i]
+  // var postsChange = {
+  //   postT: vacationPlaces}
+  //  var requestedTitleKebab = _.lowerCase("Cairo");
+    if (requestedTitle === "cairo" ) {
+      // "Cairo", "Zanzibar", "Bali", "Singapore"
+      res.render('package-details', {vactionDetails: vactionDetails.cairoVactionDetails , imageMain: cairoImageMain ,
+         image1st: cairoImage1st , image2nd: cairoImage2nd , image3rd: cairoImage3rd , image4th: cairoImage4th ,
+         image5th: cairoImage5th , image6th: cairoImage6th, highPrice: vactionpricesFrom.cairoVactionpricesTo,
+         lowPrice: vactionpricesFrom.cairoVactionpricesTo
          });
     }
-  }
+    if (requestedTitle === _.lowerCase("zanzibar") ) {
+
+
+      // "Cairo", "Zanzibar", "Bali", "Singapore"
+      res.render('package-details', {vactionDetails: vactionDetails.zanzibarVactionDetails , imageMain: zanzibarImageMain ,
+         image1st: zanzibarImage1st , image2nd: zanzibarImage2nd , image3rd: zanzibarImage3rd , image4th: zanzibarImage4th ,
+         image5th: zanzibarImage5th , image6th: zanzibarImage6th, highPrice: vactionpricesFrom.zanzibarVactionpricesTo,
+         lowPrice: vactionpricesFrom.zanzibarVactionpricesTo
+         });
+    }
+
 
 });
 
