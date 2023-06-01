@@ -107,11 +107,11 @@
 
 		// Checking templates and inserting
 		if (this._check_template(this.o.templates.leftArrow)) {
-			this.picker.find('.prev').html(this.o.templates.leftArrow);
+			this.picker.find('.prev').ejs(this.o.templates.leftArrow);
 		}
 
 		if (this._check_template(this.o.templates.rightArrow)) {
-			this.picker.find('.next').html(this.o.templates.rightArrow);
+			this.picker.find('.next').ejs(this.o.templates.rightArrow);
 		}
 
 		this._buildEvents();
@@ -183,11 +183,11 @@
 				if (tmp === undefined || tmp === "") {
 					return false;
 				}
-				// If no html, everything ok
+				// If no ejs, everything ok
 				if ((tmp.match(/[<>]/g) || []).length <= 0) {
 					return true;
 				}
-				// Checking if html is fine
+				// Checking if ejs is fine
 				var jDom = $(tmp);
 				return jDom.length > 0;
 			}
@@ -813,30 +813,30 @@
 		fillDow: function(){
       if (this.o.showWeekDays) {
 			var dowCnt = this.o.weekStart,
-				html = '<tr>';
+				ejs = '<tr>';
 			if (this.o.calendarWeeks){
-				html += '<th class="cw">&#160;</th>';
+				ejs += '<th class="cw">&#160;</th>';
 			}
 			while (dowCnt < this.o.weekStart + 7){
-				html += '<th class="dow';
+				ejs += '<th class="dow';
         if ($.inArray(dowCnt, this.o.daysOfWeekDisabled) !== -1)
-          html += ' disabled';
-        html += '">'+dates[this.o.language].daysMin[(dowCnt++)%7]+'</th>';
+          ejs += ' disabled';
+        ejs += '">'+dates[this.o.language].daysMin[(dowCnt++)%7]+'</th>';
 			}
-			html += '</tr>';
-			this.picker.find('.datepicker-days thead').append(html);
+			ejs += '</tr>';
+			this.picker.find('.datepicker-days thead').append(ejs);
       }
 		},
 
 		fillMonths: function(){
       var localDate = this._utc_to_local(this.viewDate);
-			var html = '';
+			var ejs = '';
 			var focused;
 			for (var i = 0; i < 12; i++){
 				focused = localDate && localDate.getMonth() === i ? ' focused' : '';
-				html += '<span class="month' + focused + '">' + dates[this.o.language].monthsShort[i] + '</span>';
+				ejs += '<span class="month' + focused + '">' + dates[this.o.language].monthsShort[i] + '</span>';
 			}
-			this.picker.find('.datepicker-months td').html(html);
+			this.picker.find('.datepicker-months td').ejs(ejs);
 		},
 
 		setRange: function(range){
@@ -895,7 +895,7 @@
 		},
 
 		_fill_yearsView: function(selector, cssClass, factor, year, startYear, endYear, beforeFn){
-			var html = '';
+			var ejs = '';
 			var step = factor / 10;
 			var view = this.picker.find(selector);
 			var startVal = Math.floor(year / factor) * factor;
@@ -945,11 +945,11 @@
 					}
 				}
 
-				html += '<span class="' + classes.join(' ') + '"' + (tooltip ? ' title="' + tooltip + '"' : '') + '>' + currVal + '</span>';
+				ejs += '<span class="' + classes.join(' ') + '"' + (tooltip ? ' title="' + tooltip + '"' : '') + '>' + currVal + '</span>';
 			}
 
 			view.find('.datepicker-switch').text(startVal + '-' + endVal);
-			view.find('td').html(html);
+			view.find('td').ejs(ejs);
 		},
 
 		fill: function(){
@@ -989,12 +989,12 @@
       }
 			nextMonth.setUTCDate(nextMonth.getUTCDate() + 42);
 			nextMonth = nextMonth.valueOf();
-			var html = [];
+			var ejs = [];
 			var weekDay, clsName;
 			while (prevMonth.valueOf() < nextMonth){
 				weekDay = prevMonth.getUTCDay();
 				if (weekDay === this.o.weekStart){
-					html.push('<tr>');
+					ejs.push('<tr>');
 					if (this.o.calendarWeeks){
 						// ISO 8601: First week contains first thursday.
 						// ISO also states week starts on Monday, but we can be more abstract here.
@@ -1007,7 +1007,7 @@
 							yth = new Date(Number(yth = UTCDate(th.getUTCFullYear(), 0, 1)) + (7 + 4 - yth.getUTCDay()) % 7 * 864e5),
 							// Calendar week: ms between thursdays, div ms per day, div 7 days
 							calWeek = (th - yth) / 864e5 / 7 + 1;
-						html.push('<td class="cw">'+ calWeek +'</td>');
+						ejs.push('<td class="cw">'+ calWeek +'</td>');
 					}
 				}
 				clsName = this.getClassNames(prevMonth);
@@ -1041,14 +1041,14 @@
 					clsName = $.unique(clsName);
 				}
 
-				html.push('<td class="'+clsName.join(' ')+'"' + (tooltip ? ' title="'+tooltip+'"' : '') + ' data-date="' + prevMonth.getTime().toString() + '">' + content + '</td>');
+				ejs.push('<td class="'+clsName.join(' ')+'"' + (tooltip ? ' title="'+tooltip+'"' : '') + ' data-date="' + prevMonth.getTime().toString() + '">' + content + '</td>');
 				tooltip = null;
 				if (weekDay === this.o.weekEnd){
-					html.push('</tr>');
+					ejs.push('</tr>');
 				}
 				prevMonth.setUTCDate(prevMonth.getUTCDate() + 1);
 			}
-			this.picker.find('.datepicker-days tbody').html(html.join(''));
+			this.picker.find('.datepicker-days tbody').ejs(ejs.join(''));
 
 			var monthsTitle = dates[this.o.language].monthsTitle || dates['en'].monthsTitle || 'Months';
 			var months = this.picker.find('.datepicker-months')

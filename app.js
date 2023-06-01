@@ -18,7 +18,7 @@ app.use(express.static("public"));
 //Use EJS to render parse paragraph element to home.ejs file
 app.get("/", function(req, res){
   // use EJS to change values inside home.ejs homeTitle and homePost
-  res.render("home");
+  res.render("index");
 });
 //Use EJS to render parse about.ejs file to the server
 app.get('/about', function(req, res) {
@@ -29,8 +29,23 @@ app.get('/contact', function(req, res) {
   res.render('contact');
 });
 
-app.get('/compose', function(req, res) {
-  res.render('compose');
+app.get('/package-details', function(req, res) {
+  res.render('package-details');
+});
+app.get('/blog', function(req, res) {
+  res.render('blog');
+});
+app.get('/blog-details', function(req, res) {
+  res.render('blog-details');
+});
+app.get('/packages', function(req, res) {
+  res.render('packages');
+});
+app.get('/terms', function(req, res) {
+  res.render('terms');
+});
+app.get('/testimonials', function(req, res) {
+  res.render('testimonials');
 });
 
 //tap into the post req data in compose

@@ -200,7 +200,7 @@ if (typeof jQuery === 'undefined') {
   Button.prototype.setState = function (state) {
     var d    = 'disabled'
     var $el  = this.$element
-    var val  = $el.is('input') ? 'val' : 'html'
+    var val  = $el.is('input') ? 'val' : 'ejs'
     var data = $el.data()
 
     state = state + 'Text'
@@ -1266,7 +1266,7 @@ if (typeof jQuery === 'undefined') {
     trigger: 'hover focus',
     title: '',
     delay: 0,
-    html: false,
+    ejs: false,
     container: false,
     viewport: {
       selector: 'body',
@@ -1511,7 +1511,7 @@ if (typeof jQuery === 'undefined') {
     var $tip  = this.tip()
     var title = this.getTitle()
 
-    $tip.find('.tooltip-inner')[this.options.html ? 'html' : 'text'](title)
+    $tip.find('.tooltip-inner')[this.options.ejs ? 'ejs' : 'text'](title)
     $tip.removeClass('fade in top bottom left right')
   }
 
@@ -1753,16 +1753,16 @@ if (typeof jQuery === 'undefined') {
     var title   = this.getTitle()
     var content = this.getContent()
 
-    $tip.find('.popover-title')[this.options.html ? 'html' : 'text'](title)
-    $tip.find('.popover-content').children().detach().end()[ // we use append for html objects to maintain js events
-      this.options.html ? (typeof content == 'string' ? 'html' : 'append') : 'text'
+    $tip.find('.popover-title')[this.options.ejs ? 'ejs' : 'text'](title)
+    $tip.find('.popover-content').children().detach().end()[ // we use append for ejs objects to maintain js events
+      this.options.ejs ? (typeof content == 'string' ? 'ejs' : 'append') : 'text'
     ](content)
 
     $tip.removeClass('fade top bottom left right in')
 
     // IE8 doesn't accept hiding via the `:empty` pseudo selector, we have to do
     // this manually by checking the contents.
-    if (!$tip.find('.popover-title').html()) $tip.find('.popover-title').hide()
+    if (!$tip.find('.popover-title').ejs()) $tip.find('.popover-title').hide()
   }
 
   Popover.prototype.hasContent = function () {
