@@ -140,16 +140,13 @@ section {
 
 .menu {
   float: right;
-}
-.logo-1{
- left: 10px;
- font-size: 16px;
- color: #7a7a7a;
- line-height: 24px;
- left: 0.25px;
- text-decoration: none;
 
 }
+
+.logo-name {
+  margin: 15px 0 0 0;
+}
+
 .menu li {
   float: left;
   margin-left: 30px;
@@ -381,26 +378,29 @@ section.banner {
 }
 
 .banner .container {
+  align-items: center;
+  text-align: center;
   position: relative;
   z-index: 2;
 }
 
 
 .banner .banner-caption {
+  align-items: center;
+  text-align: center;
   padding: 200px 0px;
 }
 
 .banner-secondary .banner-caption {
+  align-items: center;
+  text-align: center;
   padding: 90px 0px;
 }
 
-.banner .banner-caption .line-dec {
-  width: 80px;
-  height: 3px;
-  background-color: #4883ff;
-}
 
 .banner .banner-caption h2 {
+  align-items: center;
+  text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
   font-size: 42px;
@@ -409,20 +409,28 @@ section.banner {
 }
 
 .banner .banner-caption h4 {
+  align-items: center;
+  text-align: center;
   color: #fff;
 }
 
 .banner .banner-caption span {
+  align-items: center;
+  text-align: center;
   font-size: 22px;
   color: #fff;
   letter-spacing: 0.5px;
 }
 
 .banner .banner-caption .blue-button {
+  align-items: center;
+  text-align: center;
   margin-top: 30px;
 }
 
 .banner .submit-form {
+  align-items: center;
+  text-align: center;
   border-bottom: 5px solid #4883ff;
   background-color: #fff;
   padding: 15px;
@@ -821,7 +829,9 @@ section#video-container {
 
 .list-group-no-border .list-group-item:first-child {
   border-top: 0;
+
 }
+
 
 #video-container  {
   position: relative;
