@@ -151,7 +151,7 @@ section {
   float: left;
   margin-left: 30px;
   position: relative;
-  line-height: 100px;
+  line-height: 10px;
 }
 
 .menu li:last-child {
@@ -228,7 +228,7 @@ section {
 }
 
 .menu .sub-menu li {
-  line-height: 40px;
+  line-height: 20px;
 }
 
 .menu .sub-menu.hide {
@@ -347,7 +347,9 @@ section.banner {
 }
 
 .thumb-img img {
-  position: relative; z-index: 2;
+  position: relative;
+  z-index: 2;
+  object-fit: cover;
 }
 
 .input-group-addon:last-child {
@@ -381,10 +383,17 @@ section.banner {
   align-items: center;
   text-align: center;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
-
+.carousel-item img{
+  height: 560px;
+  object-fit: cover;
+}
+.carousel-item {
+  height: 560px;
+  object-fit: cover;thumb
+}
 .banner .banner-caption {
   align-items: center;
   text-align: center;
@@ -632,7 +641,10 @@ section.banner {
   background-color: #4883ff;
   border-radius: 50%;
 }
-
+.thumb-image{
+  height: 150px;
+  object-fit: contain;
+}
 .featured-places .featured-item .thumb .date-content h6 {
   font-size: 24px;
   font-weight: 700;
@@ -652,7 +664,7 @@ section.banner {
 .featured-places .featured-item .down-content {
   background-color: #fff;
   box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
-  padding: 20px 20px 0;
+  padding: 20px 40px 0;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
@@ -1359,4 +1371,7 @@ main > section {
 
 main > section:nth-child(even) {
   background: #f8f8f8;
+}
+.red-star {
+    color: red;
 }

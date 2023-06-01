@@ -1,6 +1,31 @@
 
 <%- include('partials/header'); -%>
-    <section class="banner" id="top" style="background-image: url(img/homepage-banner-image-1920x700.jpg);">
+<!-- Banner section -->
+      <section class="banner" id="top">
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000">
+          <img src="img/homepage-banner-image-1920x700.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+          <img src="img/IMG-1986.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+          <img src="img/IMG-1992.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+          <img src="img/IMG-1981.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+          <img src="img/IMG-1984.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+          <img src="img/IMG-1983.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item" data-bs-interval="500">
+          <img src="img/IMG-1992.jpg" class="d-block w-100" alt="...">
+        </div>
+
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
@@ -13,38 +38,23 @@
                 </div>
             </div>
         </div>
-    </section>
+
+      </div>
+
+    </div>
+</section>
 
     <main>
-        <section class="our-services">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-7">
-                        <div class="left-content">
-                            <br>
-                            <h4>About us</h4>
-                            <p>Aenean hendrerit metus leo, quis viverra purus condimentum nec. Pellentesque a sem semper, lobortis mauris non, varius urna. Quisque sodales purus eu tellus fringilla.<br><br>Mauris sit amet quam congue, pulvinar urna et, congue diam. Suspendisse eu lorem massa. Integer sit amet posuere tellus, id efficitur leo. In hac habitasse platea dictumst. Vel sequi odit similique repudiandae ipsum iste, quidem tenetur id impedit, eaque et, aliquam quod.</p>
-                            <div class="blue-button">
-                                <a href="/about">Discover More</a>
-                            </div>
-
-                            <br>
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <img src="img/about-1-720x480.jpg" class="img-fluid" alt="">
-                    </div>
-                </div>
-            </div>
-        </section>
-
+     <!-- Packages section -->
         <section class="featured-places">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-heading">
-                            <span>Packages</span>
-                            <h2>Lorem ipsum dolor sit amet ctetur.</h2>
+                          <div class="blue-button">
+                              <a href="/packages">Packages</a>
+                          </div>
+                            <h2>Upcoming Experience...</h2>
                         </div>
                     </div>
                 </div>
@@ -52,24 +62,54 @@
                 <div class="row">
                     <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="featured-item">
-                            <div class="thumb">
+                            <div class="thumb ">
                                 <div class="thumb-img">
-                                    <img src="img/product-1-720x480.jpg" alt="">
+                                    <img src="<%= cairoImage %>" alt="">
                                 </div>
 
                                 <div class="overlay-content">
-                                    <strong title="Available"><i class="fa fa-calendar"></i> Spring</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <strong title="Nights"><i class="fa fa-cube"></i> 20 nights</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <strong title="Available"><i class="fa fa-calendar"></i> Summer </strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <strong title="Nights"><i class="fa fa-cube"></i> 6 nights</strong> &nbsp;&nbsp;&nbsp;&nbsp;
                                     <strong title="Flight included"><i class="fa fa-plane"></i> Flight included</strong>
                                 </div>
                             </div>
 
                             <div class="down-content">
-                                <h4>Limelight Lodge</h4>
+                                <h4><%= cairo %> and Sharm El Sheikh</h4>
 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum incidunt, aperiam nostrum et. Voluptas vel labore numqua.</p>
+                                <p>Egypt visa on arrival | Return flight ticket | Domestic flight | 2 nights in Cairo with breakfast, lunch & dinner |
+                                Cairo city tour (Pyramids of Giza, Sphinx tour, Egypt Musuem) | Deep sea diving & snorkeling |
+                                Desert safari and Quad biking | Glass boat | parasailing | Airport transfers</p>
+                                <p><span><sup>from <strong>$</strong></sup><strong>1545</strong> - <strong><sup>$</sup>1545</strong></span></p>
 
-                                <p><span><strong><sup>$</sup>300.00</strong> - <strong><sup>$</sup>400.00</strong></span></p>
+
+                                <div class="text-button">
+                                    <a href="/package-details">View More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="featured-item">
+                            <div class="thumb">
+                                <div class="thumb-img ">
+                                    <img src="img/IMG-1987.jpg" alt="">
+                                </div>
+
+                                <div class="overlay-content">
+                                    <strong title="Available"><i class="fa fa-calendar"></i> Summer</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <strong title="Nights"><i class="fa fa-cube"></i> 5 nights</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <strong title="Flight included"><i class="fa fa-plane"></i> Flight included</strong>
+                                </div>
+                            </div>
+
+                            <div class="down-content">
+                                <h4>Summer in <%= zanzibar %></h4>
+                                <p>E-visa | Return Economy Flight Ticket | Daily breakfast & dinner | 5 Nights Beach Resort accommodation
+                                Stone Town tour | Ocean Safari blue with launch | Snorkeling |
+                                Desert safari and Quad biking | Sunset cruise |  Airport transfers</p>
+                                <p><span><sup>from <strong>₦</strong></sup><strong>1,590,000</strong> - <strong><sup>₦</sup>1,800,000</strong></span></p>
 
                                 <div class="text-button">
                                     <a href="/package-details">View More</a>
@@ -82,50 +122,24 @@
                         <div class="featured-item">
                             <div class="thumb">
                                 <div class="thumb-img">
-                                    <img src="img/product-2-720x480.jpg" alt="">
+                                    <img src="img/IMG-1979.jpg" alt="">
                                 </div>
 
                                 <div class="overlay-content">
-                                    <strong title="Available"><i class="fa fa-calendar"></i> Spring</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <strong title="Nights"><i class="fa fa-cube"></i> 20 nights</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <strong title="Available"><i class="fa fa-calendar"></i> Winter Oct 21-29</strong> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <strong title="Nights"><i class="fa fa-cube"></i> 7 nights</strong> &nbsp;&nbsp;&nbsp;&nbsp;
                                     <strong title="Flight included"><i class="fa fa-plane"></i> Flight included</strong>
                                 </div>
                             </div>
 
                             <div class="down-content">
-                                <h4>Limelight Lodge</h4>
 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum incidunt, aperiam nostrum et. Voluptas vel labore numqua.</p>
-
-                                <p><span><strong><sup>$</sup>300.00</strong> - <strong><sup>$</sup>400.00</strong></span></p>
-
-                                <div class="text-button">
-                                    <a href="/package-details">View More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="featured-item">
-                            <div class="thumb">
-                                <div class="thumb-img">
-                                    <img src="img/product-3-720x480.jpg" alt="">
-                                </div>
-
-                                <div class="overlay-content">
-                                    <strong title="Available"><i class="fa fa-calendar"></i> Spring</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <strong title="Nights"><i class="fa fa-cube"></i> 20 nights</strong> &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <strong title="Flight included"><i class="fa fa-plane"></i> Flight included</strong>
-                                </div>
-                            </div>
-
-                            <div class="down-content">
-                                <h4>Limelight Lodge</h4>
-
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum incidunt, aperiam nostrum et. Voluptas vel labore numqua.</p>
-
-                                <p><span><strong><sup>$</sup>300.00</strong> - <strong><sup>$</sup>400.00</strong></span></p>
+                                <h4>Explore <%= bali %></h4>
+                                <p>Indonesia visa | 4 Night Accomodation in Ubud | 3 Night Accomodation in Seminyak | Lunch & dinner |
+                                Stone Town tour | Ocean Safari blue with launch | Snorkeling ttip to Blue lagoon |
+                                Desert safari and Quad biking | Goa Giri Putri temple |  Airport transfers and private transport</p>
+                                <p><span><strong><sup>Premium ★ </sup></strong><sup>from <strong>$</strong></sup><strong>1650</strong> - <strong><sup>$</sup>2050</strong></span></p>
+                                <p><span><strong><sup>Luxury ★ </sup></strong><sup>from <strong>$</strong></sup><strong>2100</strong> - <strong><sup>$</sup>3130</strong></span></p>
 
                                 <div class="text-button">
                                     <a href="/package-details">View More</a>
@@ -149,8 +163,7 @@
                             </div>
 
                             <div class="down-content">
-                                <h4>Limelight Lodge</h4>
-
+                                <h4>Explore <%= singapore %></h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum incidunt, aperiam nostrum et. Voluptas vel labore numqua.</p>
 
                                 <p><span><strong><sup>$</sup>300.00</strong> - <strong><sup>$</sup>400.00</strong></span></p>
@@ -177,7 +190,8 @@
                             </div>
 
                             <div class="down-content">
-                                <h4>Limelight Lodge</h4>
+                                <h4>Explore <%= singapore %></h4>
+
 
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum incidunt, aperiam nostrum et. Voluptas vel labore numqua.</p>
 
@@ -205,7 +219,7 @@
                             </div>
 
                             <div class="down-content">
-                                <h4>Limelight Lodge</h4>
+                                <h4>Explore <%= singapore %></h4>
 
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum incidunt, aperiam nostrum et. Voluptas vel labore numqua.</p>
 
@@ -312,7 +326,7 @@
                 </div>
             </div>
         </section>
-
+     <!-- Video section -->
         <section id="video-container">
             <div class="video-overlay"></div>
             <div class="video-content">
@@ -456,6 +470,28 @@
                         </div>
                     </div>
                 </div> -->
+                <!-- About section -->
+                  <section class="our-services">
+                      <div class="container">
+                          <div class="row">
+                              <div class="col-md-7">
+                                  <div class="left-content">
+                                      <br>
+                                      <h4>About us</h4>
+                                      <p><%= aboutFirstSentence %><br><br><%= aboutSecondSentence %></p>
+                                      <div class="blue-button">
+                                          <a href="/about">Discover More</a>
+                                      </div>
+
+                                      <br>
+                                  </div>
+                              </div>
+                              <div class="col-md-5">
+                                  <img src="img/about-1-720x480.jpg" class="img-fluid" alt="">
+                              </div>
+                          </div>
+                      </div>
+                  </section>
 
     </main>
 <%- include('partials/footer'); -%>

@@ -7,8 +7,18 @@ const _ = require("lodash"); // Use Lodash libaray to convert express route para
 const port = 3000;
 const app = express();
 
+const aboutFirst = "DND travels, a subsidiary of DND GIANTS LTD is one of the leading Tour operators in Nigeria providing comprehensive travel services for individuals, groups and corporations within and outside Nigeria."
+const aboutSecond  =  "We are a reputable and professionally managed company. We have a track record of creating memorable  travels experiences for every of our clients. Why not join our family to enjoy affordable luxury."
 
+const cairoImageMain = "img/IMG-1985.jpg";
+const cairoImage1st = "img/IMG-1985.jpg";
+const cairoImage2nd = "img/IMG-1985.jpg";
+const cairoImage3rd = "img/IMG-1985.jpg";
+const cairoImage4th = "img/IMG-1985.jpg";
+const cairoImage5th = "img/IMG-1985.jpg";
+const cairoImage6th = "img/IMG-1985.jpg";
 
+const vacationPlaces = ["Cairo", "Zanzibar", "Bali", "Singapore"]
 
 app.set('view engine', 'ejs');
 
@@ -18,7 +28,8 @@ app.use(express.static("public"));
 //Use EJS to render parse paragraph element to home.ejs file
 app.get("/", function(req, res){
   // use EJS to change values inside home.ejs homeTitle and homePost
-  res.render("index");
+  res.render("index", {aboutFirstSentence:aboutFirst, aboutSecondSentence:aboutSecond,
+    cairoImage:cairoImageMain, cairo:"Cairo", zanzibar: "Zanzibar", bali:"Bali", singapore:"Singapore"});
 });
 //Use EJS to render parse about.ejs file to the server
 app.get('/about', function(req, res) {
@@ -57,20 +68,23 @@ app.post('/compose', function(req, res) {
 });
 
 // Express routing parameters to capture the values specified at their position in the URL
-app.get('/post/:postName', function(req,res) {
-  //Use Lodash libaray to convert express route parameter value to lower case
-  // var requestedTitle = _.lowerCase(req.params.postName);
-  // var postsChange = {
-  //   postT: composeTitleContainer, postP: composePostContainer}
-  // for (var i = 0; i < postsChange.postT.length; i++) {
-  //   var requestedTitleKebab = _.lowerCase(postsChange.postT[i]);
-  //   if (requestedTitleKebab === requestedTitle ) {
-  //     res.render('post', {postTitle: postsChange.postT[i],
-  //          postPost: postsChange.postP[i]
-  //        });
-  //   }
-  // }
+app.get('/package-details/:packageName', function(req,res) {
+  // Use Lodash libaray to convert express route parameter value to lower case
+  var requestedTitle = _.lowerCase(req.params.packageName);
+  var postsChange = {
+    postT: composeTitleContainer, postP: composePostContainer}
+  for (var i = 0; i < postsChange.postT.length; i++) {
+    var requestedTitleKebab = _.lowerCase(postsChange.postT[i]);
+    if (requestedTitleKebab === requestedTitle ) {
+      res.render('post', {postTitle: postsChange.postT[i],
+           postPost: postsChange.postP[i]
+         });
+    }
+  }
+
 });
+
+
 
 app.listen(port, function() {
   console.log("Server started on port 3000");
