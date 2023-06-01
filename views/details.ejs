@@ -1,0 +1,95 @@
+
+
+<%- include('partials/header'); -%>
+    <section class="banner banner-secondary" id="top" style="background-image: url(img/banner-image-1-1920x300.jpg);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="banner-caption">
+                        <div class="line-dec"></div>
+                        <h2>Lorem ipsum dolor sit amet</h2>
+
+                        <h4> <i class="fa fa-calendar"></i> Available: Spring &nbsp;&nbsp; <i class="fa fa-cube"></i> 20 nights &nbsp;&nbsp; <i class="fa fa-plane"></i> Flight included </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section class="featured-places">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-6 col-xs-12">
+                    <div>
+                      <img src="<%= imageMain %>" alt="imageMain" class="img-responsive wc-image">
+                    </div>
+                    <br>
+                  </div>
+
+                  <div class="col-md-6 col-xs-12">
+                    <h2><strong class="text-primary"><%= lowPrice %> - <%= highPrice %></strong></h2>
+
+                    <h2><small><i class="fa fa-map-marker"></i>  6 Regeneration Road, SE16 2NX, London</small></h2>
+
+                    <br>
+
+                    <div class="row">
+                      <div class="col-sm-4 col-xs-6">
+                        <div class="form-group">
+                            <img src="<%= image1st %>"  alt="image1st" class="img-responsive">
+                        </div>
+                      </div>
+                      <div class="col-sm-4 col-xs-6">
+                        <div class="form-group">
+                            <img src="<%= image2nd %>" alt="image2nd" class="img-responsive">
+                        </div>
+                      </div>
+                      <div class="col-sm-4 col-xs-6">
+                        <div class="form-group">
+                            <img src="<%= image3rd %>" alt="image3rd" class="img-responsive">
+                        </div>
+                      </div>
+
+                      <div class="col-sm-4 col-xs-6">
+                        <div class="form-group">
+                            <img src="<%= image4th %>" alt="image4th" class="img-responsive">
+                        </div>
+                      </div>
+                      <div class="col-sm-4 col-xs-6">
+                        <div class="form-group">
+                            <img src="<%= image5th %>" alt="image5th" class="img-responsive">
+                        </div>
+                      </div>
+                      <div class="col-sm-4 col-xs-6">
+                        <div class="form-group">
+                            <img src="<%= image6th %>" alt="image6th" class="img-responsive">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <form action="#" method="post" class="form">
+                    <div class="accordions">
+                        <ul class="accordion">
+                            <li>
+                                <a class="accordion-trigger">Description</a>
+
+                                <div class="accordion-content">
+                                    <p><%= vactionDetails %></p>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="accordion-trigger">Availability &amp; Prices</a>
+
+                                <div class="accordion-content">
+                                    <div class="table-responsive">
+                                      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+                                           <thead>
+                                                <tr>
+                                                     <th>Package</th>
+                                                     <th>From</th>
+                                                     <th>To</th>
+                                                     <th>Price</th>
+                                                </tr>

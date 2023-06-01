@@ -10,15 +10,24 @@ const app = express();
 const aboutFirst = "DND travels, a subsidiary of DND GIANTS LTD is one of the leading Tour operators in Nigeria providing comprehensive travel services for individuals, groups and corporations within and outside Nigeria."
 const aboutSecond  =  "We are a reputable and professionally managed company. We have a track record of creating memorable  travels experiences for every of our clients. Why not join our family to enjoy affordable luxury."
 
-const cairoImageMain = "img/IMG-1985.jpg";
-const cairoImage1st = "img/IMG-1985.jpg";
-const cairoImage2nd = "img/IMG-1985.jpg";
-const cairoImage3rd = "img/IMG-1985.jpg";
-const cairoImage4th = "img/IMG-1985.jpg";
-const cairoImage5th = "img/IMG-1985.jpg";
-const cairoImage6th = "img/IMG-1985.jpg";
-
-const zanzibarImageMain = "img/IMG-1987.jpg";
+const cairoImage = {
+   cairoImageMain: "img/IMG-1985.jpg",
+   cairoImage1st: "img/IMG-1985.jpg",
+   cairoImage2nd: "img/IMG-1985.jpg",
+   cairoImage3rd: "img/IMG-1985.jpg",
+   cairoImage4th: "img/IMG-1985.jpg",
+   cairoImage5th: "img/IMG-1985.jpg",
+   cairoImage6th: "img/IMG-1985.jpg"
+}
+const zanzibarImage = {
+   zanzibarImageMain: "img/IMG-1987.jpg",
+   zanzibarImage1st: "img/IMG-1987.jpg",
+   zanzibarImage2nd: "img/IMG-1985.jpg",
+   zanzibarImage3rd: "img/IMG-1985.jpg",
+   zanzibarImage4th: "img/IMG-1985.jpg",
+   zanzibarImage5th: "img/IMG-1985.jpg",
+   zanzibarImage6th: "img/IMG-1985.jpg"
+}
 
 const vacationPlaces = ["Cairo", "Zanzibar", "Bali", "Singapore"];
 const vactionpricesFrom = {cairoVactionpricesFrom: "1545", zanzibarVactionpricesFrom: "1,590,000", baliVactionpricesFrom: "1650", singaporeVactionpricesFrom: "300" };
@@ -37,7 +46,7 @@ app.use(express.static("public"));
 app.get("/", function(req, res){
   // use EJS to change values inside home.ejs homeTitle and homePost
   res.render("index", {aboutFirstSentence:aboutFirst, aboutSecondSentence:aboutSecond,
-    cairoImage:cairoImageMain, cairo:"Cairo", zanzibar: "Zanzibar", bali:"Bali", singapore:"Singapore",
+    cairoImage: cairoImage.cairoImageMain, zanzibarImage: zanzibarImage.zanzibarImageMain, cairo:"Cairo", zanzibar: "Zanzibar", bali:"Bali", singapore:"Singapore",
     cairoVactionpricesFrom: vactionpricesFrom.cairoVactionpricesFrom, zanzibarVactionpricesFrom: vactionpricesFrom.zanzibarVactionpricesFrom ,
     baliVactionpricesFrom: vactionpricesFrom.baliVactionpricesFrom, singaporeVactionpricesFrom: vactionpricesFrom.singaporeVactionpricesFrom,
 
@@ -61,9 +70,9 @@ app.get('/contact', function(req, res) {
   res.render('contact');
 });
 
-app.get('/package-details', function(req, res) {
-  res.render('package-details');
-});
+// app.get('/details', function(req, res) {
+//   res.render('details');
+// });
 app.get('/blog', function(req, res) {
   res.render('blog');
 });
@@ -89,33 +98,49 @@ app.post('/compose', function(req, res) {
 });
 
 // Express routing parameters to capture the values specified at their position in the URL
-app.get('/package-details/:packageName', function(req,res) {
+app.get('/details/:packageName', function(req,res) {
   // Use Lodash libaray to convert express route parameter value to lower case
   var requestedTitle = _.lowerCase(req.params.packageName);
+  console.log(req.params.packageName);
   // var postsChange = {
   //   postT: vacationPlaces}
   //  var requestedTitleKebab = _.lowerCase("Cairo");
     if (requestedTitle === "cairo" ) {
       // "Cairo", "Zanzibar", "Bali", "Singapore"
-      res.render('package-details', {vactionDetails: vactionDetails.cairoVactionDetails , imageMain: cairoImageMain ,
-         image1st: cairoImage1st , image2nd: cairoImage2nd , image3rd: cairoImage3rd , image4th: cairoImage4th ,
-         image5th: cairoImage5th , image6th: cairoImage6th, highPrice: vactionpricesFrom.cairoVactionpricesTo,
-         lowPrice: vactionpricesFrom.cairoVactionpricesTo
+      res.render('details', {vactionDetails: vactionDetails.cairoVactionDetails , imageMain: cairoImage.cairoImageMain ,
+         image1st: cairoImage.cairoImage1st , image2nd: cairoImage.cairoImage2nd , image3rd: cairoImage.cairoImage3rd ,
+         image4th: cairoImage.cairoImage4th , image5th: cairoImage.cairoImage5th , image6th: cairoImage.cairoImage6th,
+         highPrice: vactionpricesFrom.cairoVactionpricesTo, lowPrice: vactionpricesFrom.cairoVactionpricesTo
          });
     }
-    if (requestedTitle === _.lowerCase("zanzibar") ) {
-
-
-      // "Cairo", "Zanzibar", "Bali", "Singapore"
-      res.render('package-details', {vactionDetails: vactionDetails.zanzibarVactionDetails , imageMain: zanzibarImageMain ,
-         image1st: zanzibarImage1st , image2nd: zanzibarImage2nd , image3rd: zanzibarImage3rd , image4th: zanzibarImage4th ,
-         image5th: zanzibarImage5th , image6th: zanzibarImage6th, highPrice: vactionpricesFrom.zanzibarVactionpricesTo,
-         lowPrice: vactionpricesFrom.zanzibarVactionpricesTo
-         });
-    }
+    // else if (requestedTitle === _.lowerCase("zanzibar") ) {
+    //
+    //
+    //   // "Cairo", "Zanzibar", "Bali", "Singapore"
+    //   res.render('details', {vactionDetails: vactionDetails.zanzibarVactionDetails , imageMain: zanzibarImageMain ,
+    //      image1st: zanzibarImage1st , image2nd: zanzibarImage2nd , image3rd: zanzibarImage3rd , image4th: zanzibarImage4th ,
+    //      image5th: zanzibarImage5th , image6th: zanzibarImage6th, highPrice: vactionpricesFrom.zanzibarVactionpricesTo,
+    //      lowPrice: vactionpricesFrom.zanzibarVactionpricesTo
+    //      });
+    // }
 
 
 });
+
+
+//
+// app.get('/details/cairo', function(req,res) {
+//
+//       // "Cairo", "Zanzibar", "Bali", "Singapore"
+//       res.render('details', {vactionDetails: vactionDetails.cairoVactionDetails , imageMain: cairoImageMain ,
+//          image1st: cairoImage1st , image2nd: cairoImage2nd , image3rd: cairoImage3rd , image4th: cairoImage4th ,
+//          image5th: cairoImage5th , image6th: cairoImage6th, highPrice: vactionpricesFrom.cairoVactionpricesTo,
+//          lowPrice: vactionpricesFrom.cairoVactionpricesTo
+//          });
+//
+//
+//
+// });
 
 
 
