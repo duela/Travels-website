@@ -129,7 +129,7 @@ app.get('/details/:packageName', function(req,res) {
          lowPrice: vactionpricesFrom.zanzibarVactionpricesTo
          });
     }
-    
+
 
 
 });
@@ -150,11 +150,9 @@ app.get('/details/:packageName', function(req,res) {
 // });
 
 
-
-app.listen(port, function() {
-  console.log("Server started on port 3000");
+app.listen(process.env.PORT || port, function(req, res){
+  console.log('Server is connected to port ' + port + ' ...');
 });
-
 
 
 
