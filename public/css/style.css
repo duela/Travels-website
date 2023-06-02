@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Raleway', 'sans-serif';
   background-color: #fff;
@@ -21,10 +22,29 @@ section {
   padding-bottom: 80px;
 }
 
+/* .carousel-inner>.carousel-item>img, .carousel-inner>.carousel-item>a>img, {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  line-height: 1;
+  margin: auto;
+  width: auto;
+} */
+.carousel-item-banner img{
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+}
+.carousel-inner img{
+  z-index: 3;
+}
 
 .section-heading {
   text-align: center;
   margin-bottom: 60px;
+}
+.meet-our-team h2{
+  text-align: center;
 }
 
 .section-heading span {
@@ -386,11 +406,10 @@ section.banner {
   z-index: 3;
 }
 
-.carousel-item img{
-  height: 560px;
-  object-fit: cover;
+.carousel-item-testimonial{
+  padding: 5%;
 }
-.carousel-item {
+.carousel-item-testimonial {
   height: 560px;
   object-fit: cover;thumb
 }
@@ -538,8 +557,19 @@ section.banner {
   outline: none;
 }
 
-.popular-item { margin-top: 15px; margin-bottom: 15px; }
-
+.popular-item .thumb-img h4 span img {
+  margin: 7% 15%;
+}
+.row h2{
+  text-align: center;
+  margin-bottom: 5%;
+  margin-top: -4%;
+}
+@media (max-width:960px){
+  .popular-item{
+    padding-bottom: 8px;
+  }
+}
 .popular-places .popular-item .thumb {
   position: relative;
 }
@@ -762,6 +792,9 @@ section.our-services .service-item h4 {
 .our-services .left-content .blue-button {
   margin-top: 25px;
 }
+.about-us-background{
+  background-color: #fff !important;
+}
 
 .down-services {
   border-top: 1px solid #ddd;
@@ -819,11 +852,37 @@ section.our-services .service-item h4 {
   transition: all 0.2s ease-in-out;
 }
 
+@media (max-width:960px){
+  .about-us-background h4{
+    text-align: center;
+  }
+  /* .contact-content .right-content,
+  .modal-content .right-content {
+    background-color: #4883ff;
+    padding: 30px 30px 65px 5px;
+    color: #fff;
+
+  } */
+  }
+}
+/* @media (min-width:641px) and (max-width:1500px){
+  .about-us-background h4{
+    text-align: center !important;
+  }
+  }
+} */
+
+
+section#video-container {
+  background-image: url(../img/contact-image-1-1920x700.jpg);
+
+}
 section#video-container {
   background-image: url(../img/contact-image-1-1920x700.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
 }
 
 .list-group-no-border {
@@ -1003,6 +1062,9 @@ section.contact .section-heading {
   background-color: transparent;
   color: #4883ff;
 }
+.btn{
+  margin-bottom: 2%;
+}
 
 /* Modal */
 .modal {
@@ -1169,7 +1231,7 @@ textarea.form-control {
 /* Keyframes */
 @keyframes totop-in {
   0% {
-    top: 600px;
+    top: 400px;
     opacity: 0;
   }
   100% {
@@ -1339,6 +1401,13 @@ footer .contact-info ul li a {
     padding: 0 30px;
     text-align: center;
   }
+  #testimonials{
+
+    width: 100%;
+    height: 200px;
+
+    /* height: 500px; */
+  }
 
   .table-item {
     margin-bottom: 30px;
@@ -1374,4 +1443,20 @@ main > section:nth-child(even) {
 }
 .red-star {
     color: red;
+}
+
+
+#testimonials{
+  padding: 0 5%;
+  text-align: center;
+  background-color: #f4f4f4;
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  z-index: 1;
+  /* height: 500px; */
+}
+.testimonial-name{
+ padding-top: 2%;
 }

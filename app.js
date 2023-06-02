@@ -96,6 +96,14 @@ app.post('/compose', function(req, res) {
   // composePostContainer.push(req.body.postText);
   res.redirect('/');
 });
+app.post('/contact', function(req, res){
+  console.log(req.body.contactName);
+  console.log(req.body.contactSubject);
+  console.log(req.body.contactEmail);
+  console.log(req.body.contactMessage);
+  console.log(req.body);
+  res.redirect('/');
+})
 
 // Express routing parameters to capture the values specified at their position in the URL
 app.get('/details/:packageName', function(req,res) {
@@ -113,16 +121,15 @@ app.get('/details/:packageName', function(req,res) {
          highPrice: vactionpricesFrom.cairoVactionpricesTo, lowPrice: vactionpricesFrom.cairoVactionpricesTo
          });
     }
-    // else if (requestedTitle === _.lowerCase("zanzibar") ) {
-    //
-    //
-    //   // "Cairo", "Zanzibar", "Bali", "Singapore"
-    //   res.render('details', {vactionDetails: vactionDetails.zanzibarVactionDetails , imageMain: zanzibarImageMain ,
-    //      image1st: zanzibarImage1st , image2nd: zanzibarImage2nd , image3rd: zanzibarImage3rd , image4th: zanzibarImage4th ,
-    //      image5th: zanzibarImage5th , image6th: zanzibarImage6th, highPrice: vactionpricesFrom.zanzibarVactionpricesTo,
-    //      lowPrice: vactionpricesFrom.zanzibarVactionpricesTo
-    //      });
-    // }
+     if (requestedTitle === _.lowerCase("zanzibar") ) {
+      // "Cairo", "Zanzibar", "Bali", "Singapore"
+      res.render('details', {vactionDetails: vactionDetails.zanzibarVactionDetails , imageMain: zanzibarImageMain ,
+         image1st: zanzibarImage1st , image2nd: zanzibarImage2nd , image3rd: zanzibarImage3rd , image4th: zanzibarImage4th ,
+         image5th: zanzibarImage5th , image6th: zanzibarImage6th, highPrice: vactionpricesFrom.zanzibarVactionpricesTo,
+         lowPrice: vactionpricesFrom.zanzibarVactionpricesTo
+         });
+    }
+    
 
 
 });
